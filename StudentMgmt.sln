@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infomax.Models", "Infomax.Models\Infomax.Models.csproj", "{FA6BA340-EA07-476B-90A0-D3263A2C931B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infomax.Services", "Infomax.Services\Infomax.Services.csproj", "{F18F0250-B3B6-425E-9AE8-205ADF614FE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentMgmt", "StudentMgmt\StudentMgmt.csproj", "{6E767986-88B9-4AD6-95FE-47AC2A8910EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA6BA340-EA07-476B-90A0-D3263A2C931B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA6BA340-EA07-476B-90A0-D3263A2C931B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA6BA340-EA07-476B-90A0-D3263A2C931B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA6BA340-EA07-476B-90A0-D3263A2C931B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18F0250-B3B6-425E-9AE8-205ADF614FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18F0250-B3B6-425E-9AE8-205ADF614FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18F0250-B3B6-425E-9AE8-205ADF614FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18F0250-B3B6-425E-9AE8-205ADF614FE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E767986-88B9-4AD6-95FE-47AC2A8910EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E767986-88B9-4AD6-95FE-47AC2A8910EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E767986-88B9-4AD6-95FE-47AC2A8910EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E767986-88B9-4AD6-95FE-47AC2A8910EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

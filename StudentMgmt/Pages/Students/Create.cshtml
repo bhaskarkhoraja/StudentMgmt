@@ -1,0 +1,43 @@
+@page
+@model StudentMgmt.Pages.Students.CreateModel
+
+@{
+ViewData["Title"] = "Create";
+}
+
+<form>
+  <div class="form-group my-4">
+    <label for="name">Enter your name</label>
+    <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your name">
+  </div>
+  <div class="form-group my-4">
+    <label for="email">Enter your email</label>
+    <input type="text" class="form-control" id="email" placeholder="Enter your email">
+  </div>
+  <div class="form-group my-4">
+    <label for="contact">Enter your contact no.</label>
+    <input type="text" class="form-control" id="contact" placeholder="Enter your Contact No.">
+  </div>
+  <div class="d-flex my-4">
+    <p>Gender:</p>
+    <div class="form-check mx-2">
+      <input class="form-check-input" type="radio" name="gender" id="male" checked>
+      <label class="form-check-label" for="male">
+        Male
+      </label>
+    </div>
+    <div class="form-check mx-2">
+      <input class="form-check-input" type="radio" name="gender" id="female">
+      <label class="form-check-label" for="female">
+        Female
+      </label>
+    </div>
+    <div class="form-check mx-2">
+      <input class="form-check-input" type="radio" name="gender" id="other">
+      <label class="form-check-label" for="other">
+        Other
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
