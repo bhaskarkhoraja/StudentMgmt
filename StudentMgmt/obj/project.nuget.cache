@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qa29D/MvGmnOgFZ0yTUh5O7nABiFLi+TVyVFkfbqiokQbFDpo0xdNii8z/5K18CXSOmfr+Eog6rkEiZNOyob0w==",
+  "success": true,
+  "projectFilePath": "/home/bhaskar/DotNet/StudentMgmt/StudentMgmt/StudentMgmt.csproj",
+  "expectedPackageFiles": [
+    "/home/bhaskar/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.2/microsoft.aspnetcore.app.ref.7.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

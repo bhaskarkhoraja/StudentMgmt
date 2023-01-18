@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Infomax.Services/1.0.0": {
+        "dependencies": {
+          "Infomax.Models": "1.0.0"
+        },
+        "runtime": {
+          "Infomax.Services.dll": {}
+        }
+      },
+      "Infomax.Models/1.0.0": {
+        "runtime": {
+          "Infomax.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Infomax.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infomax.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
