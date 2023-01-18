@@ -29,8 +29,8 @@ ViewData["Title"] = "Student";
       <td>@student.Contact</td>
       <td>@student.Gender</td>
       <td>
-        <button type="button" class="btn btn-success">Update</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <a class="btn btn-success" asp-page="/Students/Edit" asp-route-id="@student.Id">Update</a>
+        <a class="btn btn-danger">Delete</a>
       </td>
     </tr>
     }
