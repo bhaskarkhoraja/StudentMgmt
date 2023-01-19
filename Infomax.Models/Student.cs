@@ -7,4 +7,5 @@ public class Student
     public string Email { get; set; }
     public string Contact { get; set; }
     public Gender Gender { get; set; }
+    public string PhotoPath { get; set; }
 }

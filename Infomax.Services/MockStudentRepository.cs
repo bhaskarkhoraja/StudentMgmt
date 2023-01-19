@@ -9,8 +9,8 @@ public class MockStudentRepository : IStudentRepository
     {
         _studentList = new List<Student>()
             {
-                new Student(){Id=1,Name="Bidhan Psycho",Email="bidhan@gmail.com",Contact="9854569875",Gender=Gender.Male},
-                new Student(){Id=2,Name="Rabindra Psycho",Email="rabindra@gmail.com",Contact="9875457896",Gender=Gender.Other},
+                new Student(){Id=1,Name="Bidhan Psycho",Email="bidhan@gmail.com",Contact="9854569875",Gender=Gender.Male, PhotoPath ="bidhan.jpeg"},
+                new Student(){Id=2,Name="Rabindra Psycho",Email="rabindra@gmail.com",Contact="9875457896",Gender=Gender.Other,PhotoPath="rabindra.jpeg"},
                 new Student(){Id=2,Name="Rima Psycho",Email="rima@gmail.com",Contact="9875457896",Gender=Gender.Female},
 
             };
@@ -32,6 +32,7 @@ public class MockStudentRepository : IStudentRepository
             std.Email = student.Email;
             std.Gender = student.Gender;
             std.Contact = student.Contact;
+            std.PhotoPath = student.PhotoPath;
         }
         return std;
     }
