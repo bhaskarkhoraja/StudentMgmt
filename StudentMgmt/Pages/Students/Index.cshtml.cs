@@ -11,6 +11,8 @@ namespace StudentMgmt.Pages.Students
         private readonly IStudentRepository studentRepository;
         public IEnumerable<Student> Students { get; set; }
 
+        [TempData]
+        public string Message { get; set; }
         //Constructor Dependency Injection
         public IndexModel(IStudentRepository studentRepository)
         {
