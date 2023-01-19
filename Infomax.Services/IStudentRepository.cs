@@ -6,4 +6,6 @@ public interface IStudentRepository
     IEnumerable<Student> GetAllStudents();
 
     public Student GetStudent(int id);
+
+    public Student Update(Student student);
 }

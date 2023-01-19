@@ -11,12 +11,19 @@ namespace StudentMgmt.Pages.Students
         private readonly IStudentRepository _studentRepository;
         public Student Student { get; set; }
 
-        public EditModel(IStudentRepository _studentRepository){
+        public EditModel(IStudentRepository _studentRepository)
+        {
             this._studentRepository = _studentRepository;
         }
         public void OnGet(int id)
         {
             Student = _studentRepository.GetStudent(id);
+
+        }
+        public IActionResult OnPost(Student Student)
+        {
+            Student = _studentRepository.Update(Student);
+            return RedirectToPage("/Students/Index");
         }
     }
 }

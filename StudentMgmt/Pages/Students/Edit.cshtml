@@ -1,36 +1,40 @@
-﻿@page
+﻿@page "{id:int}"
 @model StudentMgmt.Pages.Students.EditModel
 @{
 }
-<form>
+<form method="POST">
+  <input type="hidden" asp-for="Student.Id" />
   <div class="form-group my-4">
-    <label for="name">Enter your name</label>
-    <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your name" value = "@Model.Student.Name">
+    <label asp-for="Student.Name">Enter your name</label>
+    <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your name"
+      value="@Model.Student.Name" asp-for="Student.Name">
   </div>
   <div class="form-group my-4">
-    <label for="email">Enter your email</label>
-    <input type="text" class="form-control" id="email" placeholder="Enter your email" value="@Model.Student.Email">
+    <label asp-for="Student.Email">Enter your email</label>
+    <input type="text" class="form-control" id="email" placeholder="Enter your email" value="@Model.Student.Email"
+      asp-for="Student.Email">
   </div>
   <div class="form-group my-4">
-    <label for="contact">Enter your contact no.</label>
-    <input type="text" class="form-control" id="contact" placeholder="Enter your Contact No." value="@Model.Student.Contact">
+    <label asp-for="Student.Contact">Enter your contact no.</label>
+    <input type="text" class="form-control" id="contact" placeholder="Enter your Contact No."
+      value="@Model.Student.Contact" asp-for="Student.Contact">
   </div>
   <div class="d-flex my-4">
     <p>Gender:</p>
     <div class="form-check mx-2">
-      <input class="form-check-input" type="radio" name="gender" id="male" checked>
+      <input class="form-check-input" type="radio" name="gender" id="male" asp-for="Student.Gender" value="Male">
       <label class="form-check-label" for="male">
         Male
       </label>
     </div>
     <div class="form-check mx-2">
-      <input class="form-check-input" type="radio" name="gender" id="female">
+      <input class="form-check-input" type="radio" name="gender" id="female" asp-for="Student.Gender" value="Female">
       <label class="form-check-label" for="female">
         Female
       </label>
     </div>
     <div class="form-check mx-2">
-      <input class="form-check-input" type="radio" name="gender" id="other">
+      <input class="form-check-input" type="radio" name="gender" id="other" asp-for="Student.Gender" value="Other">
       <label class="form-check-label" for="other">
         Other
       </label>
