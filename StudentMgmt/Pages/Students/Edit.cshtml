@@ -47,19 +47,19 @@ var photoPath = "~/images/" + (Model.Student.PhotoPath ?? "NoImage.png");
   <div class="d-flex my-4">
     <p>Gender:</p>
     <div class="form-check mx-2">
-      <input class="form-check-input" type="radio" name="gender" id="male" asp-for="Student.Gender" value="Male">
+      <input class="form-check-input" type="radio" id="Male" asp-for="Student.Gender" value="Male">
       <label class="form-check-label" for="male">
         Male
       </label>
     </div>
     <div class="form-check mx-2">
-      <input class="form-check-input" type="radio" name="gender" id="female" asp-for="Student.Gender" value="Female">
+      <input class="form-check-input" type="radio" id="Female" asp-for="Student.Gender" value="Female">
       <label class="form-check-label" for="female">
         Female
       </label>
     </div>
     <div class="form-check mx-2">
-      <input class="form-check-input" type="radio" name="gender" id="other" asp-for="Student.Gender" value="Other">
+      <input class="form-check-input" type="radio" id="Other" asp-for="Student.Gender" value="Other">
       <label class="form-check-label" for="other">
         Other
       </label>
