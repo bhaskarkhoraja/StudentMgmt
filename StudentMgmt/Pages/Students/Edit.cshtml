@@ -21,6 +21,8 @@ var photoPath = "~/images/" + (Model.Student.PhotoPath ?? "NoImage.png");
 
 <h1>Edit</h1>
 
+<div asp-validation-summary="All" class="text-danger"></div>
+
 <form method="post" enctype="multipart/form-data" asp-page-handler="OnPost">
   <input type="hidden" asp-for="Student.Id" />
   <input type="hidden" asp-for="Student.PhotoPath" />
@@ -28,16 +30,19 @@ var photoPath = "~/images/" + (Model.Student.PhotoPath ?? "NoImage.png");
     <label asp-for="Student.Name">Enter your name</label>
     <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your name"
       value="@Model.Student.Name" asp-for="Student.Name">
+    <span asp-validation-for="Student.Name" class="text-danger"></span>
   </div>
   <div class="form-group my-4">
     <label asp-for="Student.Email">Enter your email</label>
     <input type="text" class="form-control" id="email" placeholder="Enter your email" value="@Model.Student.Email"
       asp-for="Student.Email">
+    <span asp-validation-for="Student.Email" class="text-danger"></span>
   </div>
   <div class="form-group my-4">
     <label asp-for="Student.Contact">Enter your contact no.</label>
     <input type="text" class="form-control" id="contact" placeholder="Enter your Contact No."
       value="@Model.Student.Contact" asp-for="Student.Contact">
+    <span asp-validation-for="Student.Contact" class="text-danger"></span>
   </div>
   <div class="d-flex my-4">
     <p>Gender:</p>

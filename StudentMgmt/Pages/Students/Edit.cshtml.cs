@@ -10,10 +10,11 @@ namespace StudentMgmt.Pages.Students
     {
         private readonly IStudentRepository _studentRepository;
         private readonly IWebHostEnvironment webHostEnvironment;
+        [BindProperty]
         public Student Student { get; set; }
 
         [BindProperty]
-        public IFormFile Photo { get; set; }
+        public IFormFile? Photo { get; set; }
 
         [BindProperty]
         public bool Notify { get; set; }
@@ -45,24 +46,28 @@ namespace StudentMgmt.Pages.Students
             TempData["message"] = Message;
             return RedirectToPage("/Students/Index");
         }
-        public IActionResult OnPost(Student Student)
+        public IActionResult OnPost()
         {
-            if (Photo != null)
+            if (ModelState.IsValid)
             {
-                // If a new photo is uploaded, the existing photo must be
-                // deleted. So check if there is an existing photo and delete
-                if (Student.PhotoPath != null)
+                if (Photo != null)
                 {
-                    string filePath = Path.Combine(webHostEnvironment.WebRootPath,
-                        "images", Student.PhotoPath);
-                    System.IO.File.Delete(filePath);
+                    // If a new photo is uploaded, the existing photo must be
+                    // deleted. So check if there is an existing photo and delete
+                    if (Student.PhotoPath != null)
+                    {
+                        string filePath = Path.Combine(webHostEnvironment.WebRootPath,
+                            "images", Student.PhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
+                    // Save the new photo in wwwroot/images folder and update
+                    // PhotoPath property of the Student object
+                    Student.PhotoPath = ProcessUploadedFile();
                 }
-                // Save the new photo in wwwroot/images folder and update
-                // PhotoPath property of the Student object
-                Student.PhotoPath = ProcessUploadedFile();
+                Student = _studentRepository.Update(Student);
+                return RedirectToPage("/Students/Index");
             }
-            Student = _studentRepository.Update(Student);
-            return RedirectToPage("/Students/Index");
+            return Page();
         }
         private string ProcessUploadedFile()
         {
