@@ -27,10 +27,25 @@ namespace StudentMgmt.Pages.Students
             this._studentRepository = _studentRepository;
             this.webHostEnvironment = webHostEnvironment;
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int? id)
         {
-            Student = _studentRepository.GetStudent(id);
-
+            if (id.HasValue)
+            {
+                Student = _studentRepository.GetStudent(id.Value);
+            }
+            else
+            {
+                Student = new Student();
+                // Student.PhotoPath cannot be null because it is required
+                // We will check if PhotoPath is null later when using post request
+                // and show error message if its still "none"
+                Student.PhotoPath = "none";
+            }
+            if (Student == null)
+            {
+                return RedirectToPage("/404");
+            }
+            return Page();
         }
         public IActionResult OnPostUpdateNotificationPreferences(int id)
         {
@@ -64,7 +79,21 @@ namespace StudentMgmt.Pages.Students
                     // PhotoPath property of the Student object
                     Student.PhotoPath = ProcessUploadedFile();
                 }
-                Student = _studentRepository.Update(Student);
+                if (Student.Id > 0)
+                {
+                    Student = _studentRepository.Update(Student);
+                }
+                else
+                {
+                    // Check if Student.PhotoPath is still "none"
+                    if (Student.PhotoPath == "none")
+                    {
+                        ModelState.AddModelError(string.Empty, "Please select your photo");
+                        return Page();
+                    }
+                    Student.PhotoPath = ProcessUploadedFile();
+                    Student = _studentRepository.Add(Student);
+                }
                 return RedirectToPage("/Students/Index");
             }
             return Page();
