@@ -11,7 +11,7 @@ public class MockStudentRepository : IStudentRepository
             {
                 new Student(){Id=1,Name="Bidhan Psycho",Email="bidhan@gmail.com",Contact="9854569875",Gender=Gender.Male, PhotoPath ="bidhan.jpeg"},
                 new Student(){Id=2,Name="Rabindra Psycho",Email="rabindra@gmail.com",Contact="9875457896",Gender=Gender.Other,PhotoPath="rabindra.jpeg"},
-                new Student(){Id=2,Name="Rima Psycho",Email="rima@gmail.com",Contact="9875457896",Gender=Gender.Female,PhotoPath="rima.jpeg"},
+                new Student(){Id=3,Name="Rima Psycho",Email="rima@gmail.com",Contact="9875457896",Gender=Gender.Female,PhotoPath="rima.jpeg"},
 
             };
     }
