@@ -1,8 +1,10 @@
-﻿@page "{id:min(1)}/{handler?}"
+﻿@page "{id:min(1)?}"
 @model StudentMgmt.Pages.Students.EditModel
 @{
 ViewData["Title"] = "Edit";
 var photoPath = "~/images/" + (Model.Student.PhotoPath ?? "NoImage.png");
+var pageHeader = Model.Student.Id > 0 ? "Edit" : "Create";
+bool isEdit = Model.Student.Id > 0;
 }
 <h1>Notification</h1>
 <form method="post" asp-page-handler="UpdateNotificationPreferences">
@@ -19,7 +21,7 @@ var photoPath = "~/images/" + (Model.Student.PhotoPath ?? "NoImage.png");
 
 <hr />
 
-<h1>Edit</h1>
+<h1>@pageHeader</h1>
 
 <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -74,8 +76,11 @@ var photoPath = "~/images/" + (Model.Student.PhotoPath ?? "NoImage.png");
       </div>
     </div>
   </div>
-  <div class="form-group row col-sm-4 offset-4">
-    <img class="imageThumbnail" src="@photoPath" asp-append-version="true" />
-  </div>
-  <button type="submit" class="btn btn-primary">Update</button>
+  @if(isEdit)
+    {
+      <div class="form-group row col-sm-4 offset-4">
+      <img class="imageThumbnail" src="@photoPath" asp-append-version="true" />
+      </div>
+    }
+    <button type="submit" class="btn btn-primary">Update</button>
 </form>
