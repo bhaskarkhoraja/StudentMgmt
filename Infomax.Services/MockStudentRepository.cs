@@ -11,7 +11,7 @@ public class MockStudentRepository : IStudentRepository
             {
                 new Student(){Id=1,Name="Bidhan Psycho",Email="bidhan@gmail.com",Contact="9854569875",Gender=Gender.Male, PhotoPath ="bidhan.jpeg"},
                 new Student(){Id=2,Name="Rabindra Psycho",Email="rabindra@gmail.com",Contact="9875457896",Gender=Gender.Other,PhotoPath="rabindra.jpeg"},
-                new Student(){Id=2,Name="Rima Psycho",Email="rima@gmail.com",Contact="9875457896",Gender=Gender.Female},
+                new Student(){Id=2,Name="Rima Psycho",Email="rima@gmail.com",Contact="9875457896",Gender=Gender.Female,PhotoPath="rima.jpeg"},
 
             };
     }
@@ -35,5 +35,23 @@ public class MockStudentRepository : IStudentRepository
             std.PhotoPath = student.PhotoPath;
         }
         return std;
+    }
+
+    public Student Delete(int id)
+    {
+        var StudentToDelete = this.GetStudent(id);
+        if (StudentToDelete != null)
+        {
+            _studentList.Remove(StudentToDelete);
+        }
+        return StudentToDelete;
+    }
+
+    public Student Add(Student student)
+    {
+        student.Id = _studentList.Max(student => student.Id) + 1;
+        _studentList.Add(student);
+        return student;
+
     }
 }
