@@ -5,6 +5,7 @@ ViewData["Title"] = "Edit";
 var photoPath = "~/images/" + (Model.Student.PhotoPath ?? "NoImage.png");
 var pageHeader = Model.Student.Id > 0 ? "Edit" : "Create";
 bool isEdit = Model.Student.Id > 0;
+var btn = isEdit ? "Update" : "Create";
 }
 <h1>Notification</h1>
 <form method="post" asp-page-handler="UpdateNotificationPreferences">
@@ -30,20 +31,20 @@ bool isEdit = Model.Student.Id > 0;
   <input type="hidden" asp-for="Student.PhotoPath" />
   <div class="form-group my-4">
     <label asp-for="Student.Name">Enter your name</label>
-    <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your name"
-      value="@Model.Student.Name" asp-for="Student.Name">
+    <input type="text" class="form-control mb-2" id="name" aria-describedby="name" placeholder="Enter your name"
+      value="@Model.Student.Name" asp-for="Student.Name" minlength="3" required>
     <span asp-validation-for="Student.Name" class="text-danger"></span>
   </div>
   <div class="form-group my-4">
     <label asp-for="Student.Email">Enter your email</label>
-    <input type="text" class="form-control" id="email" placeholder="Enter your email" value="@Model.Student.Email"
+    <input type="text" class="form-control mb-2" id="email" placeholder="Enter your email" value="@Model.Student.Email"
       asp-for="Student.Email">
     <span asp-validation-for="Student.Email" class="text-danger"></span>
   </div>
   <div class="form-group my-4">
     <label asp-for="Student.Contact">Enter your contact no.</label>
-    <input type="text" class="form-control" id="contact" placeholder="Enter your Contact No."
-      value="@Model.Student.Contact" asp-for="Student.Contact">
+    <input type="text" class="form-control mb-2" id="contact" placeholder="Enter your Contact No."
+      value="@Model.Student.Contact" asp-for="Student.Contact" minlength="10" maxlength="15" required>
     <span asp-validation-for="Student.Contact" class="text-danger"></span>
   </div>
   <div class="d-flex my-4">
@@ -66,6 +67,7 @@ bool isEdit = Model.Student.Id > 0;
         Other
       </label>
     </div>
+    <span asp-validation-for="Student.Gender" class="text-danger"></span>
   </div>
   <div class="form-group row">
     <label asp-for="Photo" class="col-sm-2 col-form-label"></label>
@@ -77,10 +79,17 @@ bool isEdit = Model.Student.Id > 0;
     </div>
   </div>
   @if(isEdit)
-    {
-      <div class="form-group row col-sm-4 offset-4">
-      <img class="imageThumbnail" src="@photoPath" asp-append-version="true" />
-      </div>
-    }
-    <button type="submit" class="btn btn-primary">Update</button>
+  {
+  <div class="form-group row col-sm-4 offset-4">
+    <img class="imageThumbnail" src="@photoPath" asp-append-version="true" />
+  </div>
+  }
+  <button type="submit" class="btn btn-primary" id="submit">@btn</button>
 </form>
+<script src="~/js/validate.js" asp-append-version="true"></script>
+@if(!isEdit)
+{
+<script>
+  document.querySelector('input[name="Student.Gender"]:checked').checked = false;
+</script>
+}
