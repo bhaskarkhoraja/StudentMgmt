@@ -25,14 +25,19 @@ namespace StudentMgmt.Pages.Students
         }
 
         public int DeleteId { get; set; }
-        public void OnGet(int? id)
+        public IActionResult OnGet(int? id)
         {
             if (id.HasValue)
             {
                 this.DeleteId = id.Value;
                 ToDeleteStudent = studentRepository.GetStudent(id.Value);
+                if (ToDeleteStudent == null)
+                {
+                    return RedirectToPage("/404");
+                }
             }
             Students = studentRepository.GetAllStudents();
+            return Page();
         }
         public IActionResult OnPost()
         {
